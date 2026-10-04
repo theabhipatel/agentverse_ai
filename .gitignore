@@ -1,0 +1,4 @@
+# The real server env file lives on the server, never in the repository.
+.env
+.env.*
+!.env.production.example

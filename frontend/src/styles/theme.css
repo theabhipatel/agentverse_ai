@@ -1,0 +1,106 @@
+/**
+ * AgentVerse AI design tokens.
+ *
+ * This is the ONLY file that holds colour, font and radius values.
+ * Change the brand ramp below and the whole application follows: every
+ * shadcn component reads these semantic tokens through @theme inline
+ * in index.css. Nothing else should hardcode a colour.
+ */
+
+:root {
+  /* Brand ramp. Both themes are built from these. */
+  --brand-navy-deep: oklch(0.2200 0.0533 260.04);   /* #0B1A33 */
+  --brand-navy: oklch(0.2432 0.0618 260.88);        /* #0E1F3D */
+  --brand-navy-elev: oklch(0.2838 0.0658 260.71);   /* #16294A */
+  --brand-navy-card: oklch(0.3026 0.0654 259.92);   /* #1A2E4F */
+  --brand-orange: oklch(0.65 0.18 45);        /* Professional vibrant orange */
+  --brand-orange-deep: oklch(0.55 0.16 40);   /* Darker, richer orange */
+  --brand-orange-bright: oklch(0.72 0.19 50); /* Bright, energetic orange */
+  --brand-orange-glow: oklch(0.80 0.16 55);   /* Luminous light orange */
+  --brand-orange-ink: oklch(0.25 0.05 35);    /* Extremely dark warm brown/orange for contrast */
+  --brand-ink: oklch(0.8671 0.0277 260.31);         /* #C9D4E6 */
+  --brand-slate: oklch(0.6586 0.0486 258.74);       /* #8093B0 */
+  --brand-slate-dim: oklch(0.5353 0.0521 260.52);   /* #5C6E8C */
+  --brand-line: oklch(0.7028 0.0481 261.79);        /* #8FA0BE */
+
+  /* Typography */
+  --brand-font-heading: 'Prompt', system-ui, sans-serif;
+  --brand-font-sans: 'Nunito Variable', system-ui, sans-serif;
+
+  --radius: 0.75rem;
+
+  /* Voice mode orb, in the brand teal with navy depth. A deliberate brand surface: the same in both themes. */
+  --voice-orb-core: var(--brand-navy-elev);
+  --voice-orb-deep: var(--brand-orange-deep);
+  --voice-orb-mid: var(--brand-orange-bright);
+  --voice-orb-light: oklch(0.9400 0.0450 196.00);
+
+  /* Light theme */
+  --background: oklch(1.0000 0.0000 0);
+  --foreground: oklch(0.2200 0.0533 260.04);
+  --card: oklch(1.0000 0.0000 0);
+  --card-foreground: oklch(0.2200 0.0533 260.04);
+  --popover: oklch(1.0000 0.0000 0);
+  --popover-foreground: oklch(0.2200 0.0533 260.04);
+  --primary: var(--brand-orange-deep);
+  --primary-foreground: oklch(1.0000 0.0000 0);
+  --secondary: oklch(0.9665 0.0045 258.32);
+  --secondary-foreground: oklch(0.2200 0.0533 260.04);
+  --muted: oklch(0.9759 0.0029 264.54);
+  --muted-foreground: oklch(0.5353 0.0521 260.52);
+  --accent: oklch(0.9575 0.0138 196.93);
+  --accent-foreground: oklch(0.2200 0.0533 260.04);
+  --destructive: oklch(0.5013 0.1783 28.70);
+  --destructive-foreground: oklch(1.0000 0.0000 0);
+  --border: oklch(0.9242 0.0117 264.51);
+  --input: oklch(0.9020 0.0151 260.73);
+  --ring: var(--brand-orange);
+  --chart-1: var(--brand-orange);
+  --chart-2: var(--brand-orange-bright);
+  --chart-3: var(--brand-navy-card);
+  --chart-4: var(--brand-slate);
+  --chart-5: var(--brand-orange-glow);
+  --sidebar: oklch(0.9727 0.0017 247.84);
+  --sidebar-foreground: oklch(0.2200 0.0533 260.04);
+  --sidebar-primary: var(--brand-orange-deep);
+  --sidebar-primary-foreground: oklch(1.0000 0.0000 0);
+  --sidebar-accent: oklch(0.9575 0.0138 196.93);
+  --sidebar-accent-foreground: oklch(0.2200 0.0533 260.04);
+  --sidebar-border: oklch(0.9242 0.0117 264.51);
+  --sidebar-ring: var(--brand-orange);
+}
+
+.dark {
+  --background: var(--brand-navy);
+  --foreground: var(--brand-ink);
+  --card: var(--brand-navy-elev);
+  --card-foreground: var(--brand-ink);
+  --popover: var(--brand-navy-card);
+  --popover-foreground: var(--brand-ink);
+  --primary: var(--brand-orange-bright);
+  --primary-foreground: var(--brand-orange-ink);
+  --secondary: var(--brand-navy-card);
+  --secondary-foreground: var(--brand-ink);
+  --muted: var(--brand-navy-elev);
+  --muted-foreground: var(--brand-slate);
+  --accent: var(--brand-navy-card);
+  --accent-foreground: oklch(1.0000 0.0000 0);
+  --destructive: oklch(0.7594 0.1435 26.08);
+  --destructive-foreground: var(--brand-navy-deep);
+  --border: oklch(0.7028 0.0481 261.79 / 14%);
+  --input: oklch(0.7028 0.0481 261.79 / 24%);
+  --ring: var(--brand-orange-bright);
+  --chart-1: var(--brand-orange-bright);
+  --chart-2: var(--brand-orange);
+  --chart-3: var(--brand-orange-glow);
+  --chart-4: var(--brand-slate);
+  --chart-5: var(--brand-navy-card);
+  --sidebar: var(--brand-navy-deep);
+  --sidebar-foreground: var(--brand-ink);
+  --sidebar-primary: var(--brand-orange-bright);
+  --sidebar-primary-foreground: var(--brand-orange-ink);
+  --sidebar-accent: var(--brand-navy-elev);
+  --sidebar-accent-foreground: oklch(1.0000 0.0000 0);
+  --sidebar-border: oklch(0.7028 0.0481 261.79 / 14%);
+  --sidebar-ring: var(--brand-orange-bright);
+}

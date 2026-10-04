@@ -1,0 +1,47 @@
+services:
+  postgres:
+    # Postgres 16 with pgvector for Intelligence Hub search. It is Debian based where
+    # the old image was Alpine, which is why migration 0007 rebuilds the text indexes.
+    image: pgvector/pgvector:0.8.6-pg16-trixie
+    container_name: agentverse_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: agentverse
+      POSTGRES_PASSWORD: agentverse
+      POSTGRES_DB: agentverse
+    ports:
+      - "5433:5432"
+    volumes:
+      - agentverse_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agentverse -d agentverse"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Intelligence Hub files. MinIO's free edition was archived in April 2026, so this
+  # is its final release. The backend only speaks S3, so swapping it is an env change.
+  # From quay.io, MinIO's other official registry: the Docker Hub copy stopped being
+  # pullable without a login on 2026-09-12 and broke the deploy.
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    container_name: agentverse_minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: agentverse
+      MINIO_ROOT_PASSWORD: agentverse-dev-storage
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - agentverse_minio:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  agentverse_pgdata:
+  agentverse_minio:
